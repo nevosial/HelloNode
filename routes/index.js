@@ -41,6 +41,13 @@ else{
 });
 
 router.get('/stats', function(req, res){
+  //Log the info from request headers.
+  var logvalue = req.headers['log'];     //search the header for type/name 'log'
+  if(logvalue && logvalue == 'info'){     // if the log is of value 'info' then log to console.
+    console.log("Request received for /stats");
+    console.log(req.headers);   //just to verify all headers.
+    //Use postman to create the header of {log : info} for GET request to /stat page.
+  }
   if(choicedb.length != 0){
   res.send(choicedb);
 }
