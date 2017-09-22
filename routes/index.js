@@ -48,11 +48,24 @@ router.get('/stats', function(req, res){
     console.log(req.headers);   //just to verify all headers.
     //Use postman to create the header of {log : info} for GET request to /stat page.
   }
+
+  //Managing Query string.  (select)
+  var select = req.query.select;    //save select qs to var.
+
   if(choicedb.length != 0){
-  res.send(choicedb);
+    var responseObject = choicedb;
+    if(select && select == 'count'){   //if there is a QS and it is 'count'
+      responseObject = {count:choicedb.length};
+    }
+  res.send(responseObject);
 }
 else{
-  res.status(404).send({error: '404' , message: 'The db is empty!'});
+  var responseObject = {error: '404' , message: 'The db is empty!'};
+  if(select && select == 'count'){
+    responseObject = {count:0};
+  }
+
+  res.status(404).send(responseObject);
 }
 });
 
