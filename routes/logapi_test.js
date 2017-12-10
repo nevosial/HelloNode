@@ -1,8 +1,8 @@
 var mocha = require('mocha');
 //var describe = mocha.describe();
  var expect = require('chai').expect;
-// var app = require('../app');
-// var request = require('http');
+ var app = require('../app');
+ var request = require('http');
 
 var request = require('request')
     , express = require('express')
