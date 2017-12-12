@@ -45,4 +45,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+//custom error handler.
+app.use(function(err, req, res, next){
+  console.log("an error has occurred- custom handler.");
+});
+
 module.exports = app;
