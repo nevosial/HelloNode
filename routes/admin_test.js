@@ -1,3 +1,5 @@
+//Examples for mocha tests.
+
 var mocha = require('mocha');
 //var describe = mocha.describe();
  var expect = require('chai').expect;
